@@ -318,9 +318,16 @@ window.resetAndTryAgain = () => {
     currentScore = 0;
     window.location.href = 'index.html';
 };
+
+window.shareResult = () => {
     const score = sessionStorage.getItem('mh_score') || '0';
-    const pct = Math.round((parseInt(score) / 10) * 100);
-    const text = `I scored ${score}/10 (${pct}%) on the Mental Health Awareness Quiz! 💚 Try it yourself!`;
+    const text = `I scored ${score}/10 on the Mental Health Awareness Quiz! 💚`;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.btn-outline');
+        btn.innerText = 'Copied! ✓';
+        setTimeout(() => btn.innerText = 'Share my result', 2000);
+    });
+};
     
     navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.btn-outline');
