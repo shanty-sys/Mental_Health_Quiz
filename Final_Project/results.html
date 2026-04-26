@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results — Mental Health Awareness Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="results-main">
+
+    <div class="results-card">
+
+      <!-- Always affirming opener — shown before the score -->
+      <p class="results-affirm">
+        You just spent time thinking about mental health. 
+        That alone takes courage and curiosity. 💚
+      </p>
+
+      <!-- Score ring -->
+      <div class="score-ring" id="score-ring">
+        <span class="score-big" id="score-big">0/10</span>
+        <span class="score-pct" id="score-pct">0%</span>
+      </div>
+
+      <!-- Badge and message — set by app.js based on score -->
+      <h2 class="result-badge" id="result-badge"></h2>
+      <p class="result-message" id="result-message"></p>
+
+      <!-- Key takeaways -->
+      <div class="takeaways">
+        <h3>Key things to remember</h3>
+        <ul id="takeaways-list">
+          <li>Stress and anxiety are normal — chronic versions need attention.</li>
+          <li>Sleep, exercise, and connection are powerful mental health tools.</li>
+          <li>Seeking help is a sign of strength, not weakness.</li>
+          <li>Resilience is a skill anyone can build over time.</li>
+          <li>Small daily habits compound into lasting mental wellbeing.</li>
+        </ul>
+      </div>
+
+      <!-- Actions -->
+      <div class="result-actions">
+        <a href="index.html" class="btn-primary">Try again</a>
+        <button class="btn-outline" onclick="shareResult()">
+          Share my result
+        </button>
+      </div>
+
+      <!-- Crisis resource — always visible on results page -->
+      <div class="crisis-box">
+        <p>
+          <strong>Remember:</strong> If you or someone you know 
+          is struggling, support is available.
+        </p>
+        <a href="https://988lifeline.org" target="_blank" class="crisis-link">
+          988 Suicide &amp; Crisis Lifeline — call or text 988
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+    
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

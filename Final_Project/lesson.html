@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson — Mental Health Awareness Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="lesson-header">
+    <a href="index.html" class="back-link">← All lessons</a>
+    <div class="lesson-progress">
+      <div class="lesson-prog-fill" id="lesson-prog-fill"></div>
+    </div>
+    <span class="lesson-counter" id="lesson-counter">1 / 10</span>
+  </header>
+
+  <main class="lesson-main">
+
+    <!-- Lesson hero -->
+    <div class="lesson-hero">
+      <div class="lesson-icon" id="lesson-icon">🌿</div>
+      <div class="lesson-meta">
+        <p class="lesson-num" id="lesson-num">Lesson 1 of 10</p>
+        <h1 class="lesson-title" id="lesson-title">What Is Stress?</h1>
+      </div>
+    </div>
+
+    <!-- Lesson body — paragraphs and tip boxes -->
+    <article class="lesson-body" id="lesson-body">
+      <!-- Filled by app.js -->
+    </article>
+
+    <!-- Tip box (the friendly animated tip) -->
+    <aside class="tip-box" id="tip-box">
+      <span class="tip-icon">🌿</span>
+      <div>
+        <p class="tip-label">Mindful moment</p>
+        <p class="tip-text" id="tip-text"></p>
+      </div>
+    </aside>
+
+    <!-- Navigation -->
+    <div class="lesson-nav">
+      <button class="btn-outline" id="btn-prev" onclick="prevLesson()">
+        ← Previous
+      </button>
+      <a class="btn-primary" id="btn-quiz" href="quiz.html?id=0">
+        Take the quiz →
+      </a>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

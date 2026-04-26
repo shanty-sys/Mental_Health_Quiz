@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Mental Health Awareness</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="quiz-header">
+    <a href="lesson.html?id=0" class="back-link" id="back-to-lesson">
+      ← Back to lesson
+    </a>
+    <div class="quiz-prog-wrap">
+      <div class="quiz-prog-fill" id="quiz-prog-fill"></div>
+    </div>
+    <span class="score-counter">
+      Score: <span id="score-num">0</span>
+    </span>
+  </header>
+
+  <main class="quiz-main">
+
+    <!-- Lesson label above question -->
+    <p class="quiz-lesson-label" id="quiz-lesson-label">
+      Lesson 1 · What Is Stress?
+    </p>
+
+    <!-- The question -->
+    <h2 class="quiz-question" id="quiz-question">
+      <!-- Filled by app.js -->
+    </h2>
+
+    <!-- Answer options -->
+    <div class="options" id="options">
+      <!-- Filled by app.js -->
+    </div>
+
+    <!-- Feedback panel — hidden until answered -->
+    <div class="feedback hidden" id="feedback">
+      <div class="feedback-inner">
+        <p class="feedback-verdict" id="feedback-verdict"></p>
+        <p class="feedback-explanation" id="feedback-explanation"></p>
+
+        <!-- Animated tip that slides up after answering -->
+        <div class="feedback-tip-wrap" id="feedback-tip-wrap">
+          <span class="ftip-icon">💡</span>
+          <p class="ftip-text" id="ftip-text"></p>
+        </div>
+
+        <button class="btn-next" id="btn-next" onclick="nextQuestion()">
+          Next lesson →
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

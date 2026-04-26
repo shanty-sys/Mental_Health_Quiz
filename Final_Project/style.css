@@ -1,0 +1,579 @@
+/* === Reset & base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage:        #7d77ba;
+  --sage-light:  #EDF5F0;
+  --sage-dark:   #77457b8e;
+  --lavender:    #c181ec97;
+  --lav-light:   #ccbeeb;
+  --amber:       #3a8d3250;
+  --amber-light: #FBF4E2;
+  --coral:       #6fc9976c;
+  --coral-light: #FCEEEE;
+  --ink:         #2A2A2A;
+  --ink-soft:    #555;
+  --ink-muted:   #888;
+  --surface:     #FAFAF8;
+  --white:       #FFFFFF;
+  --border:      #E5E5E0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.7;
+  
+}
+
+a { color: inherit; }
+
+/* === Site header (home page) === */
+.site-header {
+    
+  background: linear-gradient(135deg, #EDF5F0, #F3F0FA);
+  padding: 3.5rem 2rem 4rem;
+  text-align: center;
+}
+.header-tag {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+.site-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.site-header h1 em {
+  font-style: italic;
+  color: var(--sage-dark);
+}
+.header-sub {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* === Progress overview (home) === */
+.progress-overview {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+.prog-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+}
+.prog-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sage), var(--lavender));
+  border-radius: 100px;
+  transition: width 0.6s ease;
+}
+
+/* === Lessons grid (home) === */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  max-width: 640px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+}
+.lesson-chip {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.2s;
+  display: block;
+}
+.lesson-chip:hover {
+  border-color: var(--sage);
+  background: var(--sage-light);
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0,05);
+}
+.lesson-chip:active, 
+.btn-primary:active, 
+.option-btn:active {
+  transform: scale(0.96); /* Shrinks slightly to feel like a real button press */
+  transition: transform 0.1s ease;
+}
+.lesson-chip, .btn-primary, .option-btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.lesson-chip.completed {
+  border-color: var(--sage);
+  background: var(--sage-light);
+}
+.chip-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+.chip-num {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.chip-title { font-size: 13px; font-weight: 600; margin-top: 2px; }
+.chip-check {
+  float: right;
+  color: var(--sage);
+  font-size: 14px;
+}
+
+/* === Home CTA === */
+.home-cta {
+  text-align: center;
+  padding: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.cta-note {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+}
+
+/* === Buttons === */
+.btn-primary {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--sage-dark);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 11px 24px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+.btn-next {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  padding: 11px 26px;
+  border-radius: 100px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  transition: background 0.2s;
+}
+.btn-next:hover { background: var(--sage-dark); }
+
+/* === Lesson header === */
+.lesson-header, .quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.back-link {
+  font-size: 13px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--sage-dark); }
+.lesson-progress, .quiz-prog-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.lesson-prog-fill, .quiz-prog-fill {
+  height: 100%;
+  background: var(--sage);
+  border-radius: 100px;
+  transition: width 0.5s ease;
+  width: 10%;
+}
+.lesson-counter, .score-counter {
+  font-size: 12px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+/* === Lesson page === */
+.lesson-main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+.lesson-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.lesson-icon {
+  font-size: 2.5rem;
+  width: 64px;
+  height: 64px;
+  background: var(--sage-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lesson-num {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+.lesson-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.lesson-body {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+}
+.lesson-body p { margin-bottom: 1rem; }
+.lesson-body p:last-child { margin-bottom: 0; }
+.lesson-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1.25rem 0 0.4rem;
+}
+
+/* === Tip box (lesson page) === */
+.tip-box {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--sage-light);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  animation: slideUp 0.4s ease;
+}
+.tip-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.tip-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 3px;
+}
+.tip-text { font-size: 0.88rem; color: var(--sage-dark); line-height: 1.6; }
+
+/* === Lesson nav === */
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* === Quiz page === */
+.quiz-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+.quiz-lesson-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+.quiz-question {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* === Answer options === */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.option-btn {
+  padding: 1rem 1.25rem;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.18s;
+  font-family: inherit;
+}
+.option-btn:hover:not(:disabled) {
+  border-color: var(--sage);
+  background: var(--sage-light);
+  color: var(--sage-dark);
+}
+.option-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+/* Correct answer — warm green */
+.option-btn.correct {
+  border-color: var(--sage);
+  background: var(--sage-light);
+  color: var(--sage-dark);
+}
+.option-btn.correct .option-marker {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: white;
+}
+/* Wrong answer — soft amber, NOT harsh red */
+.option-btn.wrong {
+  border-color: var(--amber);
+  background: var(--amber-light);
+  color: #7A5C1E;
+}
+.option-btn.wrong .option-marker {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: white;
+}
+.option-btn:disabled { cursor: default; pointer-events: none; }
+
+/* === Feedback panel === */
+.feedback {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.feedback.hidden { display: none; }
+.feedback-inner { padding: 1.5rem; }
+.feedback-verdict {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+.feedback-explanation {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+/* Animated tip inside feedback */
+.feedback-tip-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--lav-light);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  animation: slideUp 0.45s 0.2s ease both;
+}
+.ftip-icon { font-size: 16px; flex-shrink: 0; }
+.ftip-text { font-size: 0.87rem; color: #4A3F72; line-height: 1.6; }
+
+/* === Results page === */
+.results-main {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1.5rem 4rem;
+}
+.results-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.results-affirm {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+.score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid var(--sage);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem;
+  background: var(--sage-light);
+}
+.score-big {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  line-height: 1;
+}
+.score-pct { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.result-badge {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+.result-message {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.takeaways {
+  text-align: left;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+.takeaways h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+.takeaways li {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-left: 1.1rem;
+  line-height: 1.8;
+}
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* === Crisis box (always visible on results) === */
+.crisis-box {
+  background: var(--lav-light);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.87rem;
+  color: #4A3F72;
+  line-height: 1.6;
+}
+.crisis-link {
+  display: block;
+  margin-top: 6px;
+  color: var(--lavender);
+  font-weight: 600;
+  text-decoration: none;
+}
+.crisis-link:hover { text-decoration: underline; }
+
+/* === Footer === */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border);
+}
+.site-footer a { color: var(--lavender); }
+
+/* === Animations === */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* === Mobile === */
+@media (max-width: 520px) {
+  .lesson-hero { flex-direction: column; }
+  .site-header { padding: 2.5rem 1.25rem; }
+  .lesson-main, .quiz-main { padding: 1.5rem 1rem 4rem; }
+  .lessons-grid { grid-template-columns: repeat(2, 1fr); }
+}

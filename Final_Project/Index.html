@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+     
+      <span class="header-tag">10 Lessons · Free · 5 mins</span>
+      <h1>Mental Health <em>Awareness</em> Quiz</h1>
+      <p class="header-sub">
+        Explore stress, anxiety, sleep, and wellbeing through
+        gentle lessons, each ending with a short quiz.
+        No judgment, just learning. 💚
+      </p>
+    </div>
+  </header>
+
+  <main class="home-main">
+
+    <!-- Progress overview bar -->
+    <section class="progress-overview">
+      <div class="prog-label">
+        <span>Your progress</span>
+        <span id="prog-count">0 of 10 complete</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="prog-fill" style="width: 0%"></div>
+      </div>
+    </section>
+
+    <!-- Lesson cards grid -->
+    <section class="lessons-grid" id="lessons-grid">
+      <!-- Filled by app.js -->
+    </section>
+
+    <!-- Start button -->
+    <div class="home-cta">
+      <a href="lesson.html?id=0" class="btn-primary">
+        Begin Lesson 1 →
+      </a>
+      <p class="cta-note">
+        You can pause and come back anytime.
+        Progress is saved in your browser.
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      If you're struggling right now, please reach out. 
+      <a href="https://988lifeline.org" target="_blank">
+        988 Suicide &amp; Crisis Lifeline
+      </a> — call or text 988, available 24/7.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
