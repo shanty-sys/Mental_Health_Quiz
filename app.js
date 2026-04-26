@@ -142,23 +142,17 @@ const saveProgress = (id) => {
 };
 
 // 3. PAGE ROUTING & RENDERING
-// --- UPDATED ROUTING SECTION ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Convert to lowercase to prevent case-sensitivity issues on Netlify
-    const path = window.location.pathname.toLowerCase();
+    const path = window.location.pathname;
     
-    // Check if we are on the home page
-    if (path === '/' || path.endsWith('index.html') || path.endsWith('/')) {
-        renderHome();
-    } 
-    // Check for other pages using "includes" so it works even with subfolders
-    else if (path.includes('lesson.html') || path.endsWith('/lesson')) {
+    if (path.includes('lesson.html') || path.endsWith('/lesson')) {
         renderLesson();
     } else if (path.includes('quiz.html') || path.endsWith('/quiz')) {
         renderQuiz();
     } else if (path.includes('results.html') || path.endsWith('/results')) {
         renderResults();
     } else {
+        // Default: home page (handles both index.html and /)
         renderHome();
     }
 });
@@ -297,12 +291,14 @@ function renderResults() {
     if (pct >= 80) {
         badge.innerText = "Mental Health Champion 🏆";
         msg.innerText = "You have a deep understanding of emotional well-being. Share your light with others!";
-    confetti({
-            particleCount: 150,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#7d77ba', '#ccbeeb', '#6fc997'] // Using your site's theme colors!
-        });
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#7d77ba', '#ccbeeb', '#6fc997']
+            });
+        }
     } else if (pct >= 50) {
         badge.innerText = "Mindful Explorer 🌿";
         msg.innerText = "You're building great habits! Keep practicing these small shifts in perspective.";
@@ -318,16 +314,9 @@ window.resetAndTryAgain = () => {
     currentScore = 0;
     window.location.href = 'index.html';
 };
-
-window.shareResult = () => {
     const score = sessionStorage.getItem('mh_score') || '0';
-    const text = `I scored ${score}/10 on the Mental Health Awareness Quiz! 💚`;
-    navigator.clipboard.writeText(text).then(() => {
-        const btn = document.querySelector('.btn-outline');
-        btn.innerText = 'Copied! ✓';
-        setTimeout(() => btn.innerText = 'Share my result', 2000);
-    });
-};
+    const pct = Math.round((parseInt(score) / 10) * 100);
+    const text = `I scored ${score}/10 (${pct}%) on the Mental Health Awareness Quiz! 💚 Try it yourself!`;
     
     navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.btn-outline');
