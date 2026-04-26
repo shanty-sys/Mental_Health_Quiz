@@ -142,12 +142,17 @@ const saveProgress = (id) => {
 };
 
 // 3. PAGE ROUTING & RENDERING
+// --- UPDATED ROUTING SECTION ---
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
+    // Convert to lowercase to prevent case-sensitivity issues on Netlify
+    const path = window.location.pathname.toLowerCase();
     
-    if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
+    // Check if we are on the home page
+    if (path === '/' || path.endsWith('index.html') || path.endsWith('/')) {
         renderHome();
-    } else if (path.includes('lesson.html')) {
+    } 
+    // Check for other pages using "includes" so it works even with subfolders
+    else if (path.includes('lesson.html')) {
         renderLesson();
     } else if (path.includes('quiz.html')) {
         renderQuiz();
