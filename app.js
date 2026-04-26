@@ -314,6 +314,8 @@ window.resetAndTryAgain = () => {
     currentScore = 0;
     window.location.href = 'index.html';
 };
+
+window.shareResult = () => {
     const score = sessionStorage.getItem('mh_score') || '0';
     const pct = Math.round((parseInt(score) / 10) * 100);
     const text = `I scored ${score}/10 (${pct}%) on the Mental Health Awareness Quiz! 💚 Try it yourself!`;
