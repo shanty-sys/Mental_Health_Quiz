@@ -117,7 +117,7 @@ a { color: inherit; }
   border-color: var(--sage);
   background: var(--sage-light);
   transform: translateY(-5px); 
-  box-shadow: 0 10px 20px rgba(0,0,0,0,05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 .lesson-chip:active, 
 .btn-primary:active, 
