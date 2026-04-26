@@ -145,7 +145,7 @@ const saveProgress = (id) => {
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     
-    if (path.includes('index.html') || path === '/') {
+    if (path.includes('index.html') || path === '/' || path.endsWith('/')) {
         renderHome();
     } else if (path.includes('lesson.html')) {
         renderLesson();
