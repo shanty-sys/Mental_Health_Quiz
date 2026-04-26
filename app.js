@@ -152,12 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
         renderHome();
     } 
     // Check for other pages using "includes" so it works even with subfolders
-    else if (path.includes('lesson.html') || path.includes('/lesson')) {
+    else if (path.includes('lesson.html') || path.endsWith('/lesson')) {
         renderLesson();
-    } else if (path.includes('quiz.html') || path.includes('/quiz')) {
+    } else if (path.includes('quiz.html') || path.endsWith('/quiz')) {
         renderQuiz();
-    } else if (path.includes('results.html') || path.includes('/results')) {
+    } else if (path.includes('results.html') || path.endsWith('/results')) {
         renderResults();
+    } else {
+        renderHome();
     }
 });
 
