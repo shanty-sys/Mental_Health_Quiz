@@ -211,7 +211,16 @@ function renderLesson() {
 // --- QUIZ PAGE LOGIC ---
 let currentScore = parseInt(sessionStorage.getItem('mh_score') || '0');
 
+function maybeResetScore() {
+    const id = getLessonId();
+    if (id === 0) {
+        currentScore = 0;
+        sessionStorage.setItem('mh_score', 0);
+    }
+}
+
 function renderQuiz() {
+    maybeResetScore();
     const id = getLessonId();
     const lesson = lessons[id];
     
